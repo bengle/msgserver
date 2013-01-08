@@ -17,3 +17,7 @@ profile
 DerivedData
 .idea/
 *.hmap
+node_modules
+/*.iml
+/*.ipr
+/*.iws

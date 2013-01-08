@@ -30,9 +30,21 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-app.get('/faverate', function(req, res){
+app.get('/fav', function(req, res){
   console.log(fav);
   fav.faverate(req, res);
+});
+
+app.get('/msg', function(req, res){
+    res.render('msg', {});
+});
+
+app.get('/list', function(req, res){
+    res.render('list', {});
+});
+
+app.get('/setting', function(req, res){
+    res.render('setting', {});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
