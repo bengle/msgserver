@@ -7,12 +7,8 @@ var client = top.createClient({
   appsecret: '340599aa7d7f515710146f392463221a'
 });
 
-exports.faverate = function(req, res){
-	/*
-	client.taobao_user_get({fields: 'user_id,nick,seller_credit'}, function (err, user) {
-	  console.log(err);
-	});
-*/
+exports.fav = function(req, res){
+
 	res.render('faverate',{title: '我的收藏',
 		items:[
 			{
