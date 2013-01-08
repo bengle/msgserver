@@ -7,7 +7,7 @@ ul {
 }
 
 .top {
-    background: url(/img/bg.jpg) no-repeat 0 -190px transparent;
+    background: url(/images/bg.jpg) no-repeat 0 -190px transparent;
     margin: -15px;
     min-height: 220px;
 }
