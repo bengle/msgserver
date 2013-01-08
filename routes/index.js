@@ -5,5 +5,6 @@
 
 exports.index = function(req, res){
 //  res.render('index', { title: 'Express' });
-    res.redirect('msg');
+    //res.redirect('msg');
+    res.redirect('login');
 };

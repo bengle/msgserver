@@ -31,8 +31,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 app.get('/fav', function(req, res){
-  console.log(fav);
-  fav.faverate(req, res);
+  fav.fav(req, res);
 });
 
 app.get('/msg', function(req, res){
