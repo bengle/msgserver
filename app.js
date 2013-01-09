@@ -30,6 +30,10 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
+app.get('/login', function(req, res){
+  res.render('login', {});
+});
+
 app.get('/fav', function(req, res){
   fav.fav(req, res);
 });
