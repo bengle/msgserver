@@ -34,6 +34,10 @@ app.get('/login', function(req, res){
   res.render('login', {});
 });
 
+app.get('/auth', function(req, res){
+  res.render('msg', {});
+});
+
 app.get('/fav', function(req, res){
   fav.fav(req, res);
 });
