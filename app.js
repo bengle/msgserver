@@ -5,7 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes'), fav = require('./routes/faverate')
-  , http = require('http');
+  , http = require('http')
+	, sendMsg = require('./sendmsg');
 
 var app = express();
 
@@ -52,6 +53,14 @@ app.get('/list', function(req, res){
 
 app.get('/setting', function(req, res){
     res.render('setting', {});
+});
+
+app.get('/send',function(req, res){
+	res.render('send',{});
+});
+
+app.get('/newmsg',function(req, res){
+	sendMsg.sendMsg();
 });
 
 http.createServer(app).listen(app.get('port'), function(){
