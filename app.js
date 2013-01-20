@@ -4,7 +4,9 @@
  */
 
 var express = require('express')
-  , routes = require('./routes'), fav = require('./routes/faverate')
+  , routes = require('./routes')
+    ,fav = require('./routes/faverate')
+    ,settingRoute = require('./routes/settings')
   , http = require('http')
 	, sendMsg = require('./sendmsg');
 
@@ -51,9 +53,7 @@ app.get('/list', function(req, res){
     res.render('list', {});
 });
 
-app.get('/setting', function(req, res){
-    res.render('setting', {});
-});
+app.get('/setting/:page?', settingRoute.routeSetting);
 
 app.get('/send',function(req, res){
 	res.render('send',{});

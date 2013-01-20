@@ -71,7 +71,6 @@ img {
 }
 
 .msg img {
-    margin: 5px;
     width: 50px;
     height: 50px;
 }
@@ -83,15 +82,19 @@ img {
 
 .msg .detail {
     background-color: #fff;
-    min-height: 85px;
+    min-height: 45px;
+    padding: 5px;
 }
 
 .msg .detail img {
-    margin: 5px 0 0 5px;
+    float: left;
+}
+
+.msg .shopdetail img {
+    margin-right: 3px;
 }
 
 .comment {
     margin-left: 60px;
-    margin-top: -50px;
     font-size: 12px;
 }
