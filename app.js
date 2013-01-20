@@ -4,10 +4,11 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-    ,fav = require('./routes/faverate')
-    ,settingRoute = require('./routes/settings')
-  , http = require('http')
+    , routes = require('./routes')
+    , fav = require('./routes/faverate')
+    , settingRoute = require('./routes/settings')
+    , api = require('./routes/api')
+    , http = require('http')
 	, sendMsg = require('./sendmsg');
 
 var app = express();
@@ -62,6 +63,9 @@ app.get('/send',function(req, res){
 app.get('/newmsg',function(req, res){
 	sendMsg.sendMsg();
 });
+
+//api
+app.get('/api/:api?', api.route);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

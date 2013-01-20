@@ -1,11 +1,6 @@
 /*
  * faverate page
  * */
-var top = require('top');
-var client = top.createClient({
-  appkey: '1237765',
-  appsecret: '340599aa7d7f515710146f392463221a'
-});
 
 exports.fav = function(req, res){
 
