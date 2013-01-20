@@ -48,6 +48,7 @@ var getItem = function(req, res){
     });
 };
 
+//http://127.0.0.1:3000/api/items?itemIds=16139309646,13675556607
 var getItems = function(req, res){
     var itemIds = req.query.itemIds;
 
