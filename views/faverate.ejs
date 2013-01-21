@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<div data-role="page" id="shop">
+	<div data-role="page" id="shop">
+		<input id="J_ItemUrl" type="hidden" value="" />
 <link rel="stylesheet" type="text/css" href="/stylesheets/fav.css" />
     <div data-role="header">
         <div data-role="controlgroup" data-type="horizontal">
@@ -18,9 +19,16 @@
             　<a href="#goods" data-role="button">宝贝</a>
         </div>
     </div>
-
+		<script>
+			$(function(){
+				var itemUrl = $('#J_ItemUrl').val();
+				$.getScript('itemUrl',function(rst){
+					
+				});
+			});
+		</script>
     <div data-role="content" style="height:475px;background-color:#E7E7E7;">
-        <ul class="shop-list-ul">
+        <ul id="J_ItemList" class="shop-list-ul">
             
             <% for(var i=0;i<items.length;i++){ %>
             <li class="shop-list-li clearfix">
@@ -68,7 +76,8 @@
 </div>
 
     <div data-role="page" id="goods">
-        
+			<link rel="stylesheet" type="text/css" href="/stylesheets/fav.css" />
+			<input id="J_ItemUrl" type="hidden" value="" />
         <div data-role="header">
             <div data-role="controlgroup" data-type="horizontal">
                 　<a href="#shop" data-role="button">店铺</a>
@@ -77,7 +86,31 @@
         </div>
         
         <div data-role="content">
-            
+           <ul id="J_ShopList" class="shop-list-ul">
+							<% for(var i=0;i<items.length;i++){ %>
+							<li class="shop-list-li clearfix">
+									<div class="shop-logo"><img src="<%= items[i].itemLogo %>" width=64 height=64 /></div>
+									<div class="shop-info">
+											<p>
+													<a class="shop-name-link" href="<%= items[i].itemLink %>"><%= items[i].itemDesc %></a>
+											</p>
+											<p>
+													<span>好评率：</span>
+													<span><%= items[i].favRate %></span>
+											</p>
+											<p>
+													<span>宝贝数：</span>
+													<span><%= items[i].storeLimit %></span>
+											</p>
+											<p>
+													<span>最近更新：</span>
+													<span><%= items[i].latestTime %></span>
+											</p>
+									</div>
+									<div style="clear:both"></div>
+							</li>
+							<% } %>
+					</ul> 
         </div>
         <style>
             .nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important; }
@@ -90,10 +123,10 @@
         <div data-role="footer" class="nav-glyphish" data-position="fixed" data-id="myfooter">
             <div data-role="navbar" class="nav-glyphish">
                 <ul>
-                    <li><a href="msg.ejs" data-icon="custom" id="msg">消息中心</a></li>
+                    <li><a href="msg" data-icon="custom" id="msg">消息中心</a></li>
                     <li><a href="#" data-icon="custom" id="fav" class="ui-btn-active ui-state-persist">我的收藏</a></li>
-                    <li><a href="list.ejs" data-icon="custom" id="list">逛一逛</a></li>
-                    <li><a href="setting.ejs" data-icon="custom" id="setting">设置</a></li>
+                    <li><a href="list" data-icon="custom" id="list">逛一逛</a></li>
+                    <li><a href="setting" data-icon="custom" id="setting">设置</a></li>
                 </ul>
             </div>
         </div>
