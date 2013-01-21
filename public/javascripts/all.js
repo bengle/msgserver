@@ -40,7 +40,7 @@ $('#first').live('pageshow', function(){
     }, 2000);
 });
 
-$('#mylist').live("pagecreate", function(){
+$('#list').live("pagecreate", function(){
     console.log('a');
     $('#loading').hide();
     loadingData();

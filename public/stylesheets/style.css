@@ -1,10 +1,3 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-a {
-  color: #00b7ff;
-}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 
 .nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important;}
@@ -14,7 +7,7 @@ a {
 .list .ui-icon { background:  url(/res/icons/icons-white/259-list@2x.png) 50% 50% no-repeat;  background-size: 20px 24px; }
 .setting .ui-icon { background:  url(/res/icons/icons-white/19-gear@2x.png) 50% 50% no-repeat;  background-size: 26px 26px; }
 
-#msg ul {
+#msg .info ul, #msg .msg-main {
     list-style: none;
     padding: 0;
     margin: -15px;
@@ -68,12 +61,12 @@ a {
     border-left: solid 1px #d3d3d3;
 }
 
-#msg .msg {
+#msg .msg-main {
     margin-top: 15px;
     font-size: 12px;
 }
 
-#msg .msg li {
+#msg .msg-main li {
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #eee;
     background-color: #e7e7e7;
@@ -84,27 +77,27 @@ a {
     border: solid 1px #eee;
 }
 
-#msg .msg img {
+#msg .msg-main img {
     width: 50px;
     height: 50px;
 }
 
-#msg .msg .detail-wrap {
+#msg .msg-main .detail-wrap {
     margin-left: 70px;
     margin-top: -60px;
 }
 
-#msg .msg .detail {
+#msg .msg-main .detail {
     background-color: #fff;
     min-height: 45px;
     padding: 5px;
 }
 
-#msg .msg .detail img {
+#msg .msg-main .detail img {
     float: left;
 }
 
-#msg .msg .shopdetail img {
+#msg .msg-main .shopdetail img {
     margin-right: 3px;
 }
 
@@ -112,3 +105,12 @@ a {
     margin-left: 60px;
     font-size: 12px;
 }
+
+#list .shop-list-ul{margin:0;background-color:#e7e7e7;padding:10px;}
+#list .shop-list-li{list-style:none;margin:10px;}
+#list .shop-logo{width:64px;height:64px;overflow:hidden;border-radius:4px;margin-right:10px;margin-top: 5px;float:left;}
+#list .shop-info{line-height:12px;float:left;}
+#list .shop-name-link{font-size:12px;color:#444;}
+#list .shop-info span{font-size:10px;color:#666;}
+#list .shop-info p{margin:5px 0;}
+#list .ui-content{padding:0;}
