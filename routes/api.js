@@ -21,18 +21,19 @@ var api=new Taobao(config);
 
 var getGuang = function(req, res){
     var page_no = req.query.page_no || 1,
-        page_size = req.query.page_size || 20;
+        page_size = req.query.page_size || 20,
+        keyWord = '新款';
 
     api.taobaoke['items.get']({
         fields:'num_iid,title,nick,pic_url,price,click_url,commission,commission_rate,commission_num,commission_volume,shop_click_url,seller_credit_score,item_location,volume',
-        keyword: '冬季',
+        keyword: keyWord,
         sort: 'commissionNum_desc',
         page_no: page_no,
         page_size: page_size,
         is_mobile: true
     },function(error,data){
         res.setHeader('Content-type', 'text/json');
-        res.send(data['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item']);
+        res.send(JSON.stringify(data['taobaoke_items_get_response']['taobaoke_items']['taobaoke_item']).replace(/<span class=H>.*?<\/span>/g, keyWord), null, 4);
     });
 };
 

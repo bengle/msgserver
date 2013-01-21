@@ -48,9 +48,13 @@ $('#list').live("pagecreate", function(){
 
 $('#shop').live("pagecreate", function(){
     loadingData({}, function(data){
-        var template = $.mustache($('#shop .listTemplate').val(), {
-            items:data
-        });
-        $('#shop-list-ul').html(template);
+//        var template = $.mustache($('#shop .listTemplate').val(), {
+//            items:data
+//        });
+//        $('#shop-list-ul').html(template);
     });
+});
+
+$('#itemdetail').live("pageshow", function(){
+    console.log('a');
 });
