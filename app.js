@@ -43,21 +43,6 @@ app.get('/auth', function(req, res){
   res.render('msg', {});
 });
 
-app.get('/fav', function(req, res){
-  fav.fav(req, res);
-});
-
-app.get('/msg', function(req, res){
-    res.render('msg', {});
-});
-
-app.get('/list', function(req, res){
-    res.render('list', {});
-});
-
-
-app.get('/setting/:page?', settingRoute.routeSetting);
-
 
 app.get('/send',function(req, res){
 	res.render('send',{});
