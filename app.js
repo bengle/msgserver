@@ -5,8 +5,6 @@
 
 var express = require('express')
     , routes = require('./routes')
-    , fav = require('./routes/faverate')
-    , settingRoute = require('./routes/settings')
     , api = require('./routes/api')
     , http = require('http')
 	, sendMsg = require('./sendmsg');
