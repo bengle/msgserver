@@ -18,6 +18,27 @@ $.fn.mustache = function (view, partials) {
 
 })(jQuery);
 
+function reachBottom() {
+    var scrollTop = 0;
+    var scrollHeight = 0;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        scrollTop = document.documentElement.scrollTop;
+    } else if (document.body) {
+        scrollTop = document.body.scrollTop;
+    }
+    if (document.body.clientHeight && document.documentElement.clientHeight) {
+        clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight: document.documentElement.clientHeight;
+    } else {
+        clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight: document.documentElement.clientHeight;
+    }
+    scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if (scrollTop + clientHeight +5 >= scrollHeight) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 var loadingData = function(pageNo, callback){
     pageNo = pageNo || 1;
 
@@ -37,12 +58,41 @@ $('#first').live('pageshow', function(){
 });
 
 $('#list').live("pagecreate", function(){
-    $('#loading').hide();
-    loadingData({}, function(data){
-        var template = $.mustache($('#list .listTemplate').val(), {
-            items:data
-        });
-        $('#list .shop-list-ul').html(template);
+    var currentPageNo = 1,
+        isLoading = false;
+
+//    loadingData({
+//        page_no: currentPageNo
+//    }, function(data){
+//        $('#loading').hide();
+//        var template = $.mustache($('#list .listTemplate').val(), {
+//            items:data
+//        });
+//        $('#list .shop-list-ul').append(template);
+//        currentPageNo++;
+//    });
+
+    $(window).scroll(function(){
+        if(!isLoading && reachBottom()) {
+            isLoading = true;
+            $('#loading').show();
+            loadingData({
+                page_no:currentPageNo
+            }, function(data){
+                var template = $.mustache($('#list .listTemplate').val(), {
+                    items:data
+                });
+                $('#list .shop-list-ul').append(template);
+                $('#loading').hide();
+                isLoading = false;
+                currentPageNo++;
+            });
+        }
+    });
+
+    $('#list .shop-list-ul').delegate('a', 'click', function(ev){
+        console.log(ev.target);
+        $('#itemId').val($(ev.target).attr('data-itemid'));
     });
 });
 
@@ -53,8 +103,16 @@ $('#shop').live("pagecreate", function(){
 //        });
 //        $('#shop-list-ul').html(template);
     });
+
 });
 
 $('#itemdetail').live("pageshow", function(){
-    console.log('a');
+    var itemid = $('#itemId').val();
+    if(itemid) {
+        $.get('/api/item', {
+            itemId: itemid
+        }, function(data) {
+            $('#itemdetail .main').html(data);
+        });
+    }
 });
