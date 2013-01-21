@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="lib/jquery.mobile-1.2.0.min.css" />
     <script src="lib/jquery-1.8.3.min.js"></script>
     <script src="lib/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="lib/mustache.js"></script>
 </head>
 <body>
 
 <div data-role="page">
-
+    <link rel="stylesheet" type="text/css" href="/stylesheets/list.css" />
     <div data-role="header">
         <h1>逛一逛</h1>
     </div>
 
     <div data-role="content">
-        逛
+        <ul class="shop-list-ul" id="shop-list-ul">
+
+        </ul>
+        <div id="loading" style="text-align: center"><img src="images/ajax-loader.gif" alt=""></div>
     </div>
     <style>
-        .nav-glyphish .ui-btn .ui-btn-inner { padding-top: 30px !important; padding-bottom: 0 !important}
+        .nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important;}
         .nav-glyphish .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
         #msg .ui-icon { background:  url(res/icons/icons-white/09-chat-2@2x.png) 50% 50% no-repeat; background-size: 24px 22px; }
         #fav .ui-icon { background:  url(res/icons/icons-white/253-person@2x.png) 50% 50% no-repeat; background-size: 26px 24px;  }
@@ -38,6 +42,31 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="javascripts/list.js"></script>
+<textarea id="listTemplate">
+{{#items}}
+<li class="shop-list-li clearfix">
+    <div class="shop-logo"><img src="{{pic_url}}" width=64 height=64 /></div>
+    <div class="shop-info">
+        <p>
+            <a class="shop-name-link" href="{{click_url}}">{{title}}</a>
+        </p>
+        <p>
+            <span>好评率：</span>
+            <span><</span>
+        </p>
+        <p>
+            <span>宝贝数：</span>
+            <span>{{volume}}</span>
+        </p>
+        <p>
+            <span>最近更新：</span>
+            <span></span>
+        </p>
+    </div>
+    <div style="clear:both"></div>
+</li>
+{{/items}}
+</textarea>
 </body>
 </html>
