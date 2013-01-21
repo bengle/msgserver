@@ -22,10 +22,10 @@
     <textarea class="listTemplate" style="display:none">
         {{#items}}
         <li class="shop-list-li clearfix">
-            <div class="shop-logo"><a href="#itemdetail?itemid={{num_iid}}"><img src="{{pic_url}}" width=64 height=64 /></a></div>
+            <div class="shop-logo"><a href="#itemdetail" data-itemid="{{num_iid}}"><img src="{{pic_url}}" width=64 height=64 /></a></div>
             <div class="shop-info">
                 <p>
-                    <a class="shop-name-link" href="#itemdetail">{{title}}</a>
+                    <a class="shop-name-link" href="#itemdetail" data-itemid="{{num_iid}}">{{title}}</a>
                 </p>
                 <p>
                     <span>促销价：</span>
