@@ -7,7 +7,7 @@ var express = require('express')
     , routes = require('./routes/index')
     , api = require('./routes/api')
     , http = require('http')
-	, sendMsg = require('./sendmsg');
+		, sendMsg = require('./sendmsg');
 
 var app = express();
 
@@ -39,6 +39,7 @@ app.get('/login', function(req, res){
 app.get('/auth', function(req, res){
   res.render('msg', {});
 });
+
 
 app.get('/send',function(req, res){
 	res.render('send',{});
