@@ -3,7 +3,6 @@
  * @author Harry <czy88840616@gmail.com>
  *
  */
-
 (function($){
 $.mustache = function (template, view, partials) {
     return Mustache.render(template, view, partials);
@@ -32,7 +31,17 @@ var loadingData = function(pageNo){
 
 };
 
-$(function(){
+$('#first').live('pageshow', function(){
+    setTimeout(function(){
+        $.mobile.changePage('#msg', {
+            allowSamePageTransition: true,
+            transition:"flip"
+        })
+    }, 2000);
+});
+
+$('#mylist').live("pagecreate", function(){
+    console.log('a');
     $('#loading').hide();
     loadingData();
 });
