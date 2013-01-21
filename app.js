@@ -4,10 +4,7 @@
  */
 
 var express = require('express')
-    , routes = require('./routes')
-    , fav = require('./routes/faverate')
-		, list = require('./routes/list')
-    , settingRoute = require('./routes/settings')
+    , routes = require('./routes/index')
     , api = require('./routes/api')
     , http = require('http')
 		, sendMsg = require('./sendmsg');

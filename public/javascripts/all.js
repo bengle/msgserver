@@ -18,15 +18,11 @@ $.fn.mustache = function (view, partials) {
 
 })(jQuery);
 
-var loadingData = function(pageNo){
+var loadingData = function(pageNo, callback){
     pageNo = pageNo || 1;
 
     $.get('/api', function(data){
-        var template = $.mustache($('#listTemplate').val(), {
-            items:data
-        });
-
-        $('#shop-list-ul').html(template);
+        callback(data);
     });
 
 };
@@ -41,7 +37,20 @@ $('#first').live('pageshow', function(){
 });
 
 $('#list').live("pagecreate", function(){
-    console.log('a');
     $('#loading').hide();
-    loadingData();
+    loadingData({}, function(data){
+        var template = $.mustache($('#list .listTemplate').val(), {
+            items:data
+        });
+        $('#list .shop-list-ul').html(template);
+    });
+});
+
+$('#shop').live("pagecreate", function(){
+    loadingData({}, function(data){
+        var template = $.mustache($('#shop .listTemplate').val(), {
+            items:data
+        });
+        $('#shop-list-ul').html(template);
+    });
 });
