@@ -42,7 +42,7 @@ $('#list').live("pagecreate", function(){
         var template = $.mustache($('#list .listTemplate').val(), {
             items:data
         });
-        $('#shop-list-ul').html(template);
+        $('#list .shop-list-ul').html(template);
     });
 });
 

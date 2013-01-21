@@ -114,3 +114,21 @@
 #list .shop-info span{font-size:10px;color:#666;}
 #list .shop-info p{margin:5px 0;}
 #list .ui-content{padding:0;}
+
+#shop .shop-list-ul{margin:0;background-color:#e7e7e7;padding:10px;}
+#shop .shop-list-li{list-style:none;margin:10px;}
+#shop .shop-logo{width:64px;height:64px;overflow:hidden;border-radius:4px;margin-right:10px;margin-top: 5px;float:left;}
+#shop .shop-info{line-height:12px;float:left;}
+#shop .shop-name-link{font-size:12px;color:#444;}
+#shop .shop-info span{font-size:10px;color:#666;}
+#shop .shop-info p{margin:5px 0;}
+#shop .ui-content{padding:0;}
+
+#goods .shop-list-ul{margin:0;background-color:#e7e7e7;padding:10px;}
+#goods .shop-list-li{list-style:none;margin:10px;}
+#goods .shop-logo{width:64px;height:64px;overflow:hidden;border-radius:4px;margin-right:10px;margin-top: 5px;float:left;}
+#goods .shop-info{line-height:12px;float:left;}
+#goods .shop-name-link{font-size:12px;color:#444;}
+#goods .shop-info span{font-size:10px;color:#666;}
+#goods .shop-info p{margin:5px 0;}
+#goods .ui-content{padding:0;}

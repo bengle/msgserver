@@ -10,7 +10,7 @@ exports.index = function(req, res){
         items:[
             {
                 itemLink:"http://localhost:3000/",
-                itemDesc:"这里是宝贝的描述",
+                itemDesc:"杩欓噷鏄疂璐濈殑鎻忚堪",
                 itemLogo:"/images/avartar.jpg",
                 favRate:"90%",
                 storeLimit:100,
@@ -18,7 +18,7 @@ exports.index = function(req, res){
             },
             {
                 itemLink:"http://localhost:3000/",
-                itemDesc:"这里是宝贝的描述",
+                itemDesc:"杩欓噷鏄疂璐濈殑鎻忚堪",
                 itemLogo:"/images/avartar.jpg",
                 favRate:"90%",
                 storeLimit:100,
@@ -26,7 +26,7 @@ exports.index = function(req, res){
             },
             {
                 itemLink:"http://localhost:3000/",
-                itemDesc:"这里是宝贝的描述",
+                itemDesc:"杩欓噷鏄疂璐濈殑鎻忚堪",
                 itemLogo:"/images/avartar.jpg",
                 favRate:"90%",
                 storeLimit:100,
