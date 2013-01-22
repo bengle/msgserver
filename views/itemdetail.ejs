@@ -98,10 +98,17 @@
         </ul>
     </div>
     <div data-role="content" class="content">
-        <ul>
-            <li><p>质量不好，做工差。。。。。。。</p><p>颜色分类:白色&nbsp;&nbsp;尺码:M(普通版 现货)</p><p>陌路人19681130<em></em>2013-01-22</p></li>
+        <ul style="list-style: none;padding:0 0 0 15px">
+
         </ul>
     </div>
     <textarea class="commentTemplate" style="display: none">
+{{#comments.items}}
+<li style="border-bottom: 1px #ccc solid;line-height: 22px;color: #666;font-size: 12px;">
+    <p style="color: #333;font-size: 14px;margin-bottom: 8px;">{{text}}</p>
+    <p>{{deal}}</p>
+    <p>{{buyer}}<em style="margin: 0 8px;"></em>{{date}}</p>
+</li>
+{{/comments.items}}
     </textarea>
 </div>

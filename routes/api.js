@@ -79,7 +79,7 @@ var getComment = function(req, res){
     ];
 
     res.setHeader('Content-type', 'text/json');
-    res.send(comments[itemid % 10]);
+    res.send(JSON.parse(comments[itemid % 10]));
 };
 
 exports.route = function(req, res){
