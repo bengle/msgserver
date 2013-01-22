@@ -2,7 +2,7 @@
     <div data-role="header" data-position="fixed">
         <a data-rel="back">返回</a>
         <h1>宝贝详情</h1>
-        <a href="{{href}}">购买</a>
+        <a href="#taobaodetail" data-transition="slide">购买</a>
     </div>
     <div data-role="navbar" data-iconpos="right">
         <ul>
@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li>
-                <a href="#comment" data-transition="none" data-theme="">
+                <a href="#comment" data-transition="slide" data-theme="">
                     评价
                 </a>
             </li>
@@ -33,15 +33,16 @@
     </div>
     <div class="ui-block-b">
         <p><span>促销</span><span style="font-family: arial;">￥{{item.price}}</span></p>
-        <p><span>运费: </span><span>快递: 10.00 EMS: 15.00 至 杭州市</span></p>
+        <p><span>运费: </span><span>快递: {{item.express_fee}} EMS: {{item.ems_fee}} 至 杭州市</span></p>
+        <p><span>剩下：</span><span>{{item.num}} 件</span></p>
     </div>
 </div>
 <hr>
 <div>
     <h5>您喜欢吗？</h5>
     <div data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-controls">
-        <a href="#" data-role="button" data-icon="heart" data-theme="e" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-e ui-btn-icon-left ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">+1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
-        <a href="#" data-role="button" data-icon="heart" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">-1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
+        <a href="#" data-role="button" data-icon="heart" data-theme="e" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-e ui-btn-icon-left ui-corner-left like"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">+1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
+        <a href="#" data-role="button" data-icon="heart" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-corner-right ui-controlgroup-last hate"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">-1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
     </div></div>
 </div>
 <hr>
@@ -81,7 +82,7 @@
     <div data-role="header" data-position="fixed">
         <a data-rel="back">返回</a>
         <h1>宝贝详情</h1>
-        <a href="{{href}}">购买</a>
+        <a href="#taobaodetail" data-transition="slide">购买</a>
     </div>
     <div data-role="navbar" data-iconpos="right">
         <ul>
@@ -91,7 +92,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" data-transition="none" class="ui-btn-active ui-state-persist">
+                <a href="#" data-transition="slide" class="ui-btn-active ui-state-persist">
                     评价
                 </a>
             </li>
