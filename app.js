@@ -31,14 +31,15 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-dataMod.initdb('10.249.196.128',27017,'','','user');
+dataMod.initdb('localhost',27017,'','','user');
+//dataMod.initdb('10.249.196.128',27017,'','','user');
 //dataMod.findItems('xj032085');
 
 app.get('/', routes.index);
 
 app.get('/login', function(req, res){
   if(req.session.isLogin){
-    res.render('msg',{});
+    res.render('/#msg',{});
   }
   res.render('login', {});
 });
@@ -50,9 +51,13 @@ app.post('/auth', function(req, res){
     console.log(result);
     if(result && result[0].password == psw){
         req.session.isLogin = true;
-        res.render('index', {username:user});
+        res.setHeader('Content-type', 'text/json');
+        res.send(JSON.stringify({isLogin:true}));
+        //res.render('index', {username:user});
     }else{
-        res.render('login', {error:'密码错误'});
+        res.setHeader('Content-type', 'text/json');
+        res.send(JSON.stringify({isLogin:false}));
+        //res.render('login', {error:'密码错误'});
     }
   });
 });

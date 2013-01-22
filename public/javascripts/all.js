@@ -50,11 +50,28 @@ var loadingData = function(pageNo, callback){
 
 $('#first').live('pageshow', function(){
     setTimeout(function(){
-        $.mobile.changePage('#msg', {
+        $.mobile.changePage('#login', {
             allowSamePageTransition: true,
             transition:"flip"
         })
     }, 2000);
+});
+
+$('#login').live('pagecreate',function(){
+    $('#login .submit-btn').delegate('#J_LoginBtn','click',function(){
+        var username = $('#J_UserNameTxt').val();
+        var password = $('#J_PassWordTxt').val();
+        $.post('/auth',{TPL_username:username,TPL_password:password},function(rst){
+            if(rst.isLogin){
+                $.mobile.changePage('#msg', {
+                    allowSamePageTransition: true,
+                    transition:"flip"
+                })
+            }else {
+                $('#J_LoginError').html('用户名或密码错误！');
+            }
+        });
+    });
 });
 
 var isLoading = false,
@@ -120,6 +137,9 @@ $('#goods').live("pagecreate", function(){
             goods:data
         });
         $('#J_GoodsList').append(template);
+        $('#goods .shop-list-ul').delegate('a', 'click', function(ev){
+            $('#itemId').val($(ev.target).attr('data-itemid'));
+        });
     });
 });
 
@@ -187,3 +207,4 @@ $('#taobaodetail').live('pageshow', function(){
         });
     }
 });
+

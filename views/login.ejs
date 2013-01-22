@@ -14,26 +14,27 @@
 </div>
 </header>
         <section class="innercontent">
-            <form  method="post"   class="c-form login-form" action="/auth" id="J_Login">
+   
 <fieldset>
                     <div class="field username">
                         <div class="c-form-search">
-<input type="text" name="TPL_username" id="J_UserNameTxt"   placeholder="会员名" value="" /><button type="button"><span></span></button></div>
+                          <input type="text" name="TPL_username" id="J_UserNameTxt"   placeholder="会员名" value="" />
+                        </div>
                     </div>
                     <div class="field pwd">
                         <input  type="password" name="TPL_password" id="J_PassWordTxt"  placeholder="密码"  class="c-form-txt-normal" />
                     </div>
                     <div class="field submit-btn">
-                        <input type="submit" class="c-btn-oran-big" value="登 录"/>
+                        <input type="submit" id="J_LoginBtn" class="c-btn-oran-big" value="登 录"/>
                     </div>
                     <div class="field login-option">
-                        
+                        <span id="J_LoginError" style="color:red;font-size:12px;"></span>
                     </div>
                     <div style="color: #666; margin-top:10px;font-size: 14px">
                         <span>忘记密码：请电脑登录www.taobao.com找回</span>
                     </div>
                 </fieldset>
-            </form>
+            
        </section>
 
 <noscript>
