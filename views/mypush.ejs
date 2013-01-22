@@ -2,10 +2,65 @@
 
     <div data-role="header">
         <a data-rel="back">返回</a>
-        <h1></h1>
+        <h1>提醒选项</h1>
+        <a data-icon="check">确定</a>
     </div>
 
     <div data-role="content">
-        敬请期待。。
+        <form action="">
+        <div data-role="fieldcontain">
+            <label for="slider1">
+                提醒频率(小时):
+            </label>
+            <input type="range" name="slider" value="50" min="0" max="100" data-highlight="false"
+                   data-track-theme="b" data-mini="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="toggleswitch3">
+                系统推送：
+            </label>
+            <select name="toggleswitch3" id="toggleswitch3" data-theme="" data-role="slider"
+                    data-mini="true">
+                <option value="off">
+                    Off
+                </option>
+                <option value="on">
+                    On
+                </option>
+            </select>
+        </div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="toggleswitch1">
+                    旺旺：
+                </label>
+                <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider"
+                        data-mini="true">
+                    <option value="off">
+                        Off
+                    </option>
+                    <option value="on">
+                        On
+                    </option>
+                </select>
+            </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="toggleswitch2">
+                    邮件：
+                </label>
+                <select name="toggleswitch2" id="toggleswitch2" data-theme="" data-role="slider"
+                        data-mini="true">
+                    <option value="off">
+                        Off
+                    </option>
+                    <option value="on">
+                        On
+                    </option>
+                </select>
+            </fieldset>
+        </div>
+        </form>
     </div>
 </div>
