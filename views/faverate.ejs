@@ -1,44 +1,50 @@
-<div data-role="page" id="shop">
-    <div data-role="header">
-        <div data-role="controlgroup" data-type="horizontal">
-            　<a href="#shop" data-role="button">店铺</a>
-            　<a href="#goods" data-role="button">宝贝</a>
-        </div>
-    </div>
-
-<div data-role="content" style="height:475px;background-color:#E7E7E7;">
-    <ul class="shop-list-ul">
-
-        <% for(var i=0;i<items.length;i++){ %>
+<div data-role="page" id="goods">
+<textarea class="J_GoodsTemp" style="display:none;">
+    {{#goods}}
         <li class="shop-list-li clearfix">
-            <div class="shop-logo"><img src="<%= items[i].itemLogo %>" width=64 height=64 /></div>
+            <div class="shop-logo"><img src="{{itemLogo}}" width=64 height=64 /></div>
             <div class="shop-info">
                 <p>
-                    <a class="shop-name-link" href="<%= items[i].itemLink %>"><%= items[i].itemDesc %></a>
+                    <a class="shop-name-link" href="{{itemLink}}">{{itemDesc}}</a>
                 </p>
                 <p>
                     <span>好评率：</span>
-                    <span><%= items[i].favRate %></span>
+                    <span>{{favRate}}</span>
                 </p>
                 <p>
                     <span>宝贝数：</span>
-                    <span><%= items[i].storeLimit %></span>
+                    <span>{{storeLimit}}</span>
                 </p>
                 <p>
                     <span>最近更新：</span>
-                    <span><%= items[i].latestTime %></span>
+                    <span>{{latestTime}}</span>
                 </p>
             </div>
             <div style="clear:both"></div>
         </li>
-        <% } %>
+    {{/goods}}
+</textarea>
+<style>
+.ui-controlgroup-controls{width:100%;}
+.ui-content{background-color: #e7e7e7;}
+</style>
+    <div data-role="header">
+        <div data-role="controlgroup" data-type="horizontal">
+            <a href="#goods" data-role="button">宝贝</a>
+            <a href="#shop" data-role="button" style="float:right">店铺</a>
+        </div>
+    </div>
+
+<div data-role="content" style="height:475px;background-color:#E7E7E7;">
+    <ul id="J_GoodsList" class="shop-list-ul">
+        
     </ul>
 </div>
 <div data-role="footer" class="nav-glyphish" data-position="fixed" data-id="myfooter">
     <div data-role="navbar" class="nav-glyphish">
         <ul>
             <li><a href="#msg" data-icon="custom" class="msg">消息中心</a></li>
-            <li><a href="#" data-icon="custom" class="fav ui-btn-active ui-state-persist">我的收藏</a></li>
+            <li><a href="#goods" data-icon="custom" class="fav ui-btn-active ui-state-persist">我的收藏</a></li>
             <li><a href="#list" data-icon="custom" class="list">逛一逛</a></li>
             <li><a href="#setting" data-icon="custom" class="setting">设置</a></li>
         </ul>
@@ -47,22 +53,42 @@
 </div>
 
 
-<div data-role="page" id="goods">
+<div data-role="page" id="shop">
+<style>
+.ui-controlgroup-controls{width:100%;}
+.ui-content{background-color: #e7e7e7;}
+</style>
         <div data-role="header">
             <div data-role="controlgroup" data-type="horizontal">
-                　<a href="#shop" data-role="button">店铺</a>
-                　<a href="#goods" data-role="button">宝贝</a>
+                <a href="#goods" data-role="button">宝贝</a>
+                <a href="#shop" data-role="button" style="float:right">店铺</a>
             </div>
         </div>
         
         <div data-role="content">
-            敬请期待
+            <ul class="shop-list-ul">
+                <li class="shop-list-li clearfix">
+                    <a href="#" style="display:block;width:256px;height:256px;">
+                        <img src="http://temp.im/256x256" />
+                    </a>
+                </li>
+                <li class="shop-list-li clearfix">
+                    <a href="#" style="display:block;width:256px;height:256px;">
+                        <img src="http://temp.im/256x256" />
+                    </a>
+                </li>
+                <li class="shop-list-li clearfix">
+                    <a href="#" style="display:block;width:256px;height:256px;">
+                        <img src="http://temp.im/256x256" />
+                    </a>
+                </li>
+            </ul>
         </div>
         <div data-role="footer" class="nav-glyphish" data-position="fixed" data-id="myfooter">
             <div data-role="navbar" class="nav-glyphish">
                 <ul>
                     <li><a href="#msg" data-icon="custom" class="msg">消息中心</a></li>
-                    <li><a href="#" data-icon="custom" class="fav ui-btn-active ui-state-persist">我的收藏</a></li>
+                    <li><a href="#goods" data-icon="custom" class="fav ui-btn-active ui-state-persist">我的收藏</a></li>
                     <li><a href="#list" data-icon="custom" class="list">逛一逛</a></li>
                     <li><a href="#setting" data-icon="custom" class="setting">设置</a></li>
                 </ul>
