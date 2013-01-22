@@ -114,9 +114,7 @@ $('#shop').live("pagecreate", function(){
 
 // 收藏宝贝
 $('#goods').live("pagecreate", function(){
-    loadingData({
-        page_no:1
-    }, function(data){
+    $.get('/api/items?itemIds=16098798732,20773380823', function(data){
         console.log(data);
         var template = $.mustache($('#shop .J_GoodsTemp').val(), {
             goods:data
