@@ -105,13 +105,22 @@ $('#list').live('pagehide', function(){
 });
 
 $('#shop').live("pagecreate", function(){
-    loadingData({}, function(data){
-//        var template = $.mustache($('#shop .listTemplate').val(), {
-//            items:data
-//        });
-//        $('#shop-list-ul').html(template);
+    loadingData({
+        page_no:1
+    }, function(data){
+        
     });
+});
 
+$('#goods').live("pagecreate", function(){
+    loadingData({
+        page_no:1
+    }, function(data){
+        var template = $.mustache($('#shop .J_GoodsTemp').val(), {
+            goods:data
+        });
+        $('#J_GoodsList').html(template);
+    });
 });
 
 $('#itemdetail').live("pagebeforeshow", function(){

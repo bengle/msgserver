@@ -7,6 +7,7 @@ var express = require('express')
     , routes = require('./routes/index')
     , api = require('./routes/api')
     , http = require('http')
+		, dataMod = require('./module/data-mod')
 		, sendMsg = require('./sendmsg');
 
 var app = express();
@@ -29,6 +30,9 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
+
+dataMod.initdb('10.249.196.128',27017,'','','user');
+dataMod.findItems('xj032085');
 
 app.get('/', routes.index);
 
