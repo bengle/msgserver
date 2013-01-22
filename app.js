@@ -32,7 +32,7 @@ app.configure('development', function(){
 });
 
 dataMod.initdb('10.249.196.128',27017,'','','user');
-dataMod.findItems('xj032085');
+//dataMod.findItems('xj032085');
 
 app.get('/', routes.index);
 
@@ -40,8 +40,17 @@ app.get('/login', function(req, res){
   res.render('login', {});
 });
 
-app.get('/auth', function(req, res){
-  res.render('msg', {});
+app.post('/auth', function(req, res){
+  var user = req.body.TPL_username;
+  var psw = req.body.TPL_password;
+  dataMod.findItems(user,function(result){
+    console.log(result);
+    if(result && result[0].password == psw){
+        res.render('index', {username:user});
+    }else{
+        res.render('login', {error:'密码错误'});
+    }
+  });
 });
 
 

@@ -56,14 +56,14 @@ exports.initdb = function(host,port,username,password,db){
 
 }
 
-exports.findItems = function(name){
+exports.findItems = function(name, callback){
     info.find({username:name},function(err,rst){
         if(err){
             console.log(err);
         }
         else {
-            console.log(rst);
-            return rst;
+            //console.log(rst);
+            callback(rst);
         }
     });
 }
