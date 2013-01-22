@@ -114,9 +114,9 @@ $('#shop').live("pagecreate", function(){
 
 // 收藏宝贝
 $('#goods').live("pagecreate", function(){
-    $.get('/api/items?itemIds=16098798732,20773380823', function(data){
+    $.get('/api/items?itemIds=16098798732,20773380823,15913794840,15707731374,18510351145,14797615409,17802184761,15832178680,16264673673', function(data){
         console.log(data);
-        var template = $.mustache($('#shop .J_GoodsTemp').val(), {
+        var template = $.mustache($('#goods .J_GoodsTemp').val(), {
             goods:data
         });
         $('#J_GoodsList').append(template);
