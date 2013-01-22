@@ -1,12 +1,79 @@
 <div data-role="page" id="itemdetail">
-    <div data-role="header">
+    <div data-role="header" data-position="fixed">
         <a data-rel="back">返回</a>
         <h1>宝贝详情</h1>
         <a href="{{href}}">购买</a>
     </div>
-
-    <div data-role="content">
-        <div id="loading" style="text-align: center"><img src="images/ajax-loader.gif" alt=""></div>
-        <div class="main"></div>
+    <div data-role="navbar" data-iconpos="right">
+        <ul>
+            <li>
+                <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                    宝贝
+                </a>
+            </li>
+            <li>
+                <a href="#page1" data-transition="none" data-theme="">
+                    评价
+                </a>
+            </li>
+        </ul>
     </div>
+    <div data-role="content" class="content">
+
+    </div>
+    <textarea class="detailTemplate" style="display: none">
+<div class="ui-grid-a">
+    <strong>{{item.title}}</strong>
+</div>
+<div class="ui-grid-a">
+    <div class="ui-block-a">
+        <div style="width: 120px;height: 120px">
+            <img src="{{item.pic_url}}" alt="image" width="120">
+        </div>
+    </div>
+    <div class="ui-block-b">
+        <p><span>促销</span><span>￥{{item.price}}</span></p>
+        <p><span>运费: </span><span>快递: 0.00 EMS: 15.00 至 杭州市</span></p>
+    </div>
+</div>
+<hr>
+<div>
+    <h5>您喜欢吗？</h5>
+    <div data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-controls">
+        <a href="#" data-role="button" data-icon="heart" data-theme="e" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-e ui-btn-icon-left ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">+1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
+        <a href="#" data-role="button" data-icon="heart" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">-1</span><span class="ui-icon ui-icon-heart ui-icon-shadow">&nbsp;</span></span></a>
+    </div></div>
+</div>
+<hr>
+<div>
+    <h5>关注和提醒</h5>
+    <div data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-controls">
+        <a href="#" data-role="button" data-icon="dollar" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">价格</span><span class="ui-icon ui-icon-dollar ui-icon-shadow">&nbsp;</span></span></a>
+        <a href="#" data-role="button" data-icon="chat" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-icon-left ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">差评</span><span class="ui-icon ui-icon-chat ui-icon-shadow">&nbsp;</span></span></a>
+        <a href="#" data-role="button" data-icon="gear" data-iconpos="right" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">更多</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></a>
+    </div></div>
+</div>
+<div>
+    <h5>一周价格走势</h5>
+    <div id="chartdiv" style="height:200px;width:300px; "></div>
+</div>
+<hr>
+<div>
+    <h5>统计</h5>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <p>
+                <span>点击次数：</span>
+                <span>30</span>
+            </p>
+        </div>
+        <div class="ui-block-b">
+            <p>
+                <span>设置提醒人数：</span>
+                <span>25</span>
+            </p>
+        </div>
+    </div>
+</div>
+    </textarea>
 </div>

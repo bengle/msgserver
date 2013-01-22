@@ -57,43 +57,51 @@ $('#first').live('pageshow', function(){
     }, 2000);
 });
 
-$('#list').live("pagecreate", function(){
-    var currentPageNo = 1,
-        isLoading = false;
+var isLoading = false,
+    currentPageNo = 1;
 
-//    loadingData({
-//        page_no: currentPageNo
-//    }, function(data){
-//        $('#loading').hide();
-//        var template = $.mustache($('#list .listTemplate').val(), {
-//            items:data
-//        });
-//        $('#list .shop-list-ul').append(template);
-//        currentPageNo++;
-//    });
-
-    $(window).scroll(function(){
-        if(!isLoading && reachBottom()) {
-            isLoading = true;
-            $('#loading').show();
-            loadingData({
-                page_no:currentPageNo
-            }, function(data){
-                var template = $.mustache($('#list .listTemplate').val(), {
-                    items:data
-                });
-                $('#list .shop-list-ul').append(template);
-                $('#loading').hide();
-                isLoading = false;
-                currentPageNo++;
+var loadListData = function(){
+    if(!isLoading && reachBottom()) {
+        isLoading = true;
+        $('#loading').show();
+        loadingData({
+            page_no:currentPageNo
+        }, function(data){
+            var template = $.mustache($('#list .listTemplate').val(), {
+                items:data
             });
-        }
+            $('#list .shop-list-ul').append(template);
+            $('#loading').hide();
+            isLoading = false;
+            currentPageNo++;
+        });
+    }
+};
+
+$('#list').live("pagecreate", function(){
+    loadingData({
+        page_no: currentPageNo
+    }, function(data){
+        $('#loading').hide();
+        var template = $.mustache($('#list .listTemplate').val(), {
+            items:data
+        });
+        $('#list .shop-list-ul').append(template);
+        currentPageNo++;
     });
 
     $('#list .shop-list-ul').delegate('a', 'click', function(ev){
-        console.log(ev.target);
         $('#itemId').val($(ev.target).attr('data-itemid'));
     });
+});
+
+$('#list').live('pageshow', function(){
+    $(window).bind('scroll', loadListData);
+});
+
+$('#list').live('pagehide', function(){
+    //非当前页面要解绑
+    $(window).unbind('scroll', loadListData);
 });
 
 $('#shop').live("pagecreate", function(){
@@ -115,13 +123,19 @@ $('#goods').live("pagecreate", function(){
     });
 });
 
-$('#itemdetail').live("pageshow", function(){
+$('#itemdetail').live("pagebeforeshow", function(){
+    $.mobile.loading('show');
     var itemid = $('#itemId').val();
     if(itemid) {
         $.get('/api/item', {
             itemId: itemid
         }, function(data) {
-            $('#itemdetail .main').html(data);
+            var template = $.mustache($('#itemdetail .detailTemplate').val(), {
+                item:data
+            });
+
+            $('#itemdetail .content').html(template);
+            $.jqplot('chartdiv',  [[[1, 20],[2,5.12],[3,13.1],[4,9.6],[5,13.6]]]);
         });
     }
 });
