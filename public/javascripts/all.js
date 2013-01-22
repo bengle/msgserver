@@ -134,9 +134,24 @@ $('#itemdetail').live("pageshow", function(){
             var template = $.mustache($('#itemdetail .detailTemplate').val(), {
                 item:data
             });
+            var base = data.price*1,
+                rate = data.price % 10 * 1.5;
 
             $('#itemdetail .content').html(template);
-            $.jqplot('chartdiv',  [[[1, 20],[2,5.12],[3,13.1],[4,9.6],[5,13.6]]]);
+            var seed = data.price % 5;
+
+            if(seed >= 0 && seed <= 1) {
+                $.jqplot('chartdiv',  [[[1, base + rate*4],[2,base],[3,base*1.5 + rate*0.9],[4,base + 2*rate],[5,base]]]);
+            } else if(seed > 1 && seed <= 2) {
+                $.jqplot('chartdiv',  [[[1, base - rate],[2,base-base*0.1],[3,base + rate*0.9],[4,base + 10*rate],[5,base]]]);
+            } else if(seed > 2 && seed <= 3) {
+                $.jqplot('chartdiv',  [[[1, base + rate*0.5],[2,base+base*0.3],[3,base - rate],[4,base + 7*rate],[5,base]]]);
+            } else if(seed > 3 && seed <= 4) {
+                $.jqplot('chartdiv',  [[[1, base - rate*2],[2,base+base*0.7],[3,base*0.7 - rate],[4,base*0.7 + 7*rate],[5,base]]]);
+            } else if(seed > 4 && seed <= 5) {
+                $.jqplot('chartdiv',  [[[1, base + rate*5],[2,base-base*0.3],[3,base*0.5 - rate],[4,base*0.6 + 3*rate],[5,base]]]);
+            }
+
 
             $('#itemdetail .like').click(function(ev){
                 $.mobile.loading('show');
