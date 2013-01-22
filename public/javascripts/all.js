@@ -123,7 +123,7 @@ $('#goods').live("pagecreate", function(){
     });
 });
 
-$('#itemdetail').live("pagebeforeshow", function(){
+$('#itemdetail').live("pageshow", function(){
     $.mobile.loading('show');
     var itemid = $('#itemId').val();
     if(itemid) {
@@ -136,6 +136,26 @@ $('#itemdetail').live("pagebeforeshow", function(){
 
             $('#itemdetail .content').html(template);
             $.jqplot('chartdiv',  [[[1, 20],[2,5.12],[3,13.1],[4,9.6],[5,13.6]]]);
+
+            $.mobile.loading('hide');
+        });
+    }
+});
+
+$('#comment').live('pageshow', function(){
+    $.mobile.loading('show');
+    var itemid = $('#itemId').val();
+    if(itemid) {
+        $.get('/api/comment', {
+            itemId: itemid
+        }, function(data) {
+            var template = $.mustache($('#comment .detailTemplate').val(), {
+                item:data
+            });
+
+            $('#comment .content').html(template);
+
+            $.mobile.loading('hide');
         });
     }
 });
