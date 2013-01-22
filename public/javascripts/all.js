@@ -166,6 +166,13 @@ $('#itemdetail').live("pageshow", function(){
                 $(ev.target).parents('a').removeClass('ui-btn-hover-c ui-btn-up-c');
                 $.mobile.loading('hide');
             });
+
+            $('#itemdetail .see_price, #itemdetail .see_comment').click(function(ev){
+                $.mobile.loading('show');
+                $(ev.target).parents('a').attr('data-theme', 'b');
+                $(ev.target).parents('a').removeClass('ui-btn-hover-c ui-btn-up-c');
+                $.mobile.loading('hide');
+            });
             $.mobile.loading('hide');
         });
     }
