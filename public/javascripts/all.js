@@ -100,7 +100,7 @@ $('#list').live('pageshow', function(){
 });
 
 $('#list').live('pagehide', function(){
-    //·Çµ±Ç°Ò³ÃæÒª½â°ó
+    //取消绑定
     $(window).unbind('scroll', loadListData);
 });
 
@@ -150,8 +150,8 @@ $('#comment').live('pageshow', function(){
         $.get('/api/comment', {
             itemId: itemid
         }, function(data) {
-            var template = $.mustache($('#comment .detailTemplate').val(), {
-                item:data
+            var template = $.mustache($('#comment .commentTemplate').val(), {
+                comments:data
             });
 
             $('#comment .content').html(template);
