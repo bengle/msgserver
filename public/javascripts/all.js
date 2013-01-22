@@ -100,7 +100,7 @@ $('#list').live('pageshow', function(){
 });
 
 $('#list').live('pagehide', function(){
-    //非当前页面要解绑
+    //路脟碌卤脟掳脪鲁脙忙脪陋陆芒掳贸
     $(window).unbind('scroll', loadListData);
 });
 
@@ -112,17 +112,20 @@ $('#shop').live("pagecreate", function(){
     });
 });
 
+// 鏀惰棌瀹濊礉
 $('#goods').live("pagecreate", function(){
     loadingData({
         page_no:1
     }, function(data){
+        console.log(data);
         var template = $.mustache($('#shop .J_GoodsTemp').val(), {
             goods:data
         });
-        $('#J_GoodsList').html(template);
+        $('#J_GoodsList').append(template);
     });
 });
 
+// 鏀惰棌搴楅摵
 $('#itemdetail').live("pagebeforeshow", function(){
     $.mobile.loading('show');
     var itemid = $('#itemId').val();
