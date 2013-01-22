@@ -7,12 +7,12 @@
     <div data-role="navbar" data-iconpos="right">
         <ul>
             <li>
-                <a href="#page1" data-transition="fade" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                <a href="#" data-transition="fade" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
                     宝贝
                 </a>
             </li>
             <li>
-                <a href="#page1" data-transition="none" data-theme="">
+                <a href="#comment" data-transition="none" data-theme="">
                     评价
                 </a>
             </li>
@@ -32,8 +32,8 @@
         </div>
     </div>
     <div class="ui-block-b">
-        <p><span>促销</span><span>￥{{item.price}}</span></p>
-        <p><span>运费: </span><span>快递: 0.00 EMS: 15.00 至 杭州市</span></p>
+        <p><span>促销</span><span style="font-family: arial;">￥{{item.price}}</span></p>
+        <p><span>运费: </span><span>快递: 10.00 EMS: 15.00 至 杭州市</span></p>
     </div>
 </div>
 <hr>
@@ -75,5 +75,33 @@
         </div>
     </div>
 </div>
+    </textarea>
+</div>
+<div data-role="page" id="comment">
+    <div data-role="header" data-position="fixed">
+        <a data-rel="back">返回</a>
+        <h1>宝贝详情</h1>
+        <a href="{{href}}">购买</a>
+    </div>
+    <div data-role="navbar" data-iconpos="right">
+        <ul>
+            <li>
+                <a href="#itemdetail" data-transition="fade">
+                    宝贝
+                </a>
+            </li>
+            <li>
+                <a href="#" data-transition="none" class="ui-btn-active ui-state-persist">
+                    评价
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="content" class="content">
+        <ul>
+            <li><p>质量不好，做工差。。。。。。。</p><p>颜色分类:白色&nbsp;&nbsp;尺码:M(普通版 现货)</p><p>陌路人19681130<em></em>2013-01-22</p></li>
+        </ul>
+    </div>
+    <textarea class="commentTemplate" style="display: none">
     </textarea>
 </div>
