@@ -28,14 +28,13 @@
 <div class="ui-grid-a">
     <div class="ui-block-a">
         <div style="width: 120px;height: 120px">
-            <a href="{{item.wap_detail_url}}" data-transition="slide">
             <img src="{{item.pic_url}}" alt="image" width="120">
-            </a>
         </div>
     </div>
     <div class="ui-block-b">
         <p><span>促销</span><span style="font-family: arial;">￥{{item.price}}</span></p>
-        <p><span>运费: </span><span>快递: 10.00 EMS: 15.00 至 杭州市</span></p>
+        <p><span>运费: </span><span>快递: {{item.express_fee}} EMS: {{item.ems_fee}} 至 杭州市</span></p>
+        <p><span>剩下：</span><span>{{item.num}} 件</span></p>
     </div>
 </div>
 <hr>

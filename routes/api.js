@@ -42,7 +42,7 @@ var getItem = function(req, res){
 
     api.item['get']({
         num_iid: itemId,
-        fields:'num_iid,detail_url,title,nick,type,skus,props_name,created,is_lightning_consignment,is_fenxiao,auction_point,property_alias,cid,pic_url,num,valid_thru,list_time,delist_time,location,price,approve_status,item_imgs,wap_desc,wap_detail_url'
+        fields:'num_iid,detail_url,title,nick,type,skus,props_name,created,is_lightning_consignment,is_fenxiao,auction_point,property_alias,cid,pic_url,num,valid_thru,list_time,delist_time,location,price,approve_status,item_imgs,wap_desc,wap_detail_url,post_fee,express_fee,ems_fee'
     },function(error,data){
         res.setHeader('Content-type', 'text/json');
         res.send(data['item_get_response']['item']);
