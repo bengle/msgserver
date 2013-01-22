@@ -138,6 +138,19 @@ $('#itemdetail').live("pageshow", function(){
             $('#itemdetail .content').html(template);
             $.jqplot('chartdiv',  [[[1, 20],[2,5.12],[3,13.1],[4,9.6],[5,13.6]]]);
 
+            $('#itemdetail .like').click(function(ev){
+                $.mobile.loading('show');
+                $(ev.target).parents('a').attr('data-theme', 'b');
+                $(ev.target).parents('a').removeClass('ui-btn-hover-e ui-btn-up-e');
+                $.mobile.loading('hide');
+            });
+
+            $('#itemdetail .hate').click(function(ev) {
+                $.mobile.loading('show');
+                $(ev.target).parents('a').attr('data-theme', 'b');
+                $(ev.target).parents('a').removeClass('ui-btn-hover-c ui-btn-up-c');
+                $.mobile.loading('hide');
+            });
             $.mobile.loading('hide');
         });
     }
@@ -155,6 +168,20 @@ $('#comment').live('pageshow', function(){
             });
 
             $('#comment .content').html(template);
+
+            $.mobile.loading('hide');
+        });
+    }
+});
+
+$('#taobaodetail').live('pageshow', function(){
+    $.mobile.loading('show');
+    var itemid = $('#itemId').val();
+    if(itemid) {
+        $.get('/api/item', {
+            itemId: itemid
+        }, function(data) {
+            $('#taobaodetail .content').html('<iframe src="' +data.wap_detail_url+ '" style="height:'+document.documentElement.clientHeight+'px;width:320px"></iframe>');
 
             $.mobile.loading('hide');
         });
