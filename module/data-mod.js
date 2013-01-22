@@ -43,7 +43,7 @@ exports.initdb = function(host,port,username,password,db){
     mongoose.connect(mongourl);
 
     /*
-    var newItem = new info({username:'xj032085',password:'123456',collect_items:'16098798732,20773380823',collect_shops:'34472414,71629806'});
+    var newItem = new info({username:'xj032085',password:'123456',collect_items:'16098798732,20773380823,15913794840,15707731374,18510351145,14797615409,17802184761,15832178680,16264673673',collect_shops:'34472414,71629806'});
     newItem.save(function(err){
         if(err){
             console.log(err);
