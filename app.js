@@ -37,6 +37,9 @@ dataMod.initdb('10.249.196.128',27017,'','','user');
 app.get('/', routes.index);
 
 app.get('/login', function(req, res){
+  if(req.session.isLogin){
+    res.render('msg',{});
+  }
   res.render('login', {});
 });
 
@@ -46,6 +49,7 @@ app.post('/auth', function(req, res){
   dataMod.findItems(user,function(result){
     console.log(result);
     if(result && result[0].password == psw){
+        req.session.isLogin = true;
         res.render('index', {username:user});
     }else{
         res.render('login', {error:'密码错误'});
