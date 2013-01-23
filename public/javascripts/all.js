@@ -32,7 +32,7 @@ function reachBottom() {
         clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight: document.documentElement.clientHeight;
     }
     scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    if (scrollTop + clientHeight +5 >= scrollHeight) {
+    if (scrollTop + clientHeight + 10 >= scrollHeight) {
         return true;
     } else {
         return false;
@@ -58,7 +58,7 @@ $('#first').live('pageshow', function(){
 });
 
 $('#login').live('pagecreate',function(){
-    $('#login .submit-btn').delegate('#J_LoginBtn','click',function(){
+    $('#login .submit-btn').delegate('#J_LoginBtn','tap',function(){
         var username = $('#J_UserNameTxt').val();
         var password = $('#J_PassWordTxt').val();
         $.post('/auth',{TPL_username:username,TPL_password:password},function(rst){
@@ -95,7 +95,7 @@ var isLoading = false,
 var loadListData = function(){
     if(!isLoading && reachBottom()) {
         isLoading = true;
-        $('#loading').show();
+        $.mobile.loading('show');
         loadingData({
             page_no:currentPageNo
         }, function(data){
@@ -103,7 +103,7 @@ var loadListData = function(){
                 items:data
             });
             $('#list .shop-list-ul').append(template);
-            $('#loading').hide();
+            $.mobile.loading('hide');
             isLoading = false;
             currentPageNo++;
         });
@@ -114,7 +114,7 @@ $('#list').live("pagecreate", function(){
     loadingData({
         page_no: currentPageNo
     }, function(data){
-        $('#loading').hide();
+        $.mobile.loading('hide');
         var template = $.mustache($('#list .listTemplate').val(), {
             items:data
         });
@@ -122,7 +122,7 @@ $('#list').live("pagecreate", function(){
         currentPageNo++;
     });
 
-    $('#list .shop-list-ul').delegate('a', 'click', function(ev){
+    $('#list .shop-list-ul').delegate('a', 'tap', function(ev){
         $('#itemId').val($(ev.target).attr('data-itemid'));
     });
 });
@@ -152,7 +152,7 @@ $('#goods').live("pagecreate", function(){
             goods:data
         });
         $('#J_GoodsList').append(template);
-        $('#goods .shop-list-ul').delegate('a', 'click', function(ev){
+        $('#goods .shop-list-ul').delegate('a', 'tap', function(ev){
             $('#itemId').val($(ev.target).attr('data-itemid'));
         });
     });
@@ -188,21 +188,21 @@ $('#itemdetail').live("pageshow", function(){
             }
 
 
-            $('#itemdetail .like').click(function(ev){
+            $('#itemdetail .like').tap(function(ev){
                 $.mobile.loading('show');
                 $(ev.target).parents('a').attr('data-theme', 'b');
                 $(ev.target).parents('a').removeClass('ui-btn-hover-e ui-btn-up-e');
                 $.mobile.loading('hide');
             });
 
-            $('#itemdetail .hate').click(function(ev) {
+            $('#itemdetail .hate').tap(function(ev) {
                 $.mobile.loading('show');
                 $(ev.target).parents('a').attr('data-theme', 'b');
                 $(ev.target).parents('a').removeClass('ui-btn-hover-c ui-btn-up-c');
                 $.mobile.loading('hide');
             });
 
-            $('#itemdetail .see_price, #itemdetail .see_comment').click(function(ev){
+            $('#itemdetail .see_price, #itemdetail .see_comment').tap(function(ev){
                 $.mobile.loading('show');
                 $(ev.target).parents('a').attr('data-theme', 'b');
                 $(ev.target).parents('a').removeClass('ui-btn-hover-c ui-btn-up-c');
@@ -246,7 +246,7 @@ $('#taobaodetail').live('pageshow', function(){
 });
 
 $('#setting').live('pagecreate', function(){
-    $('#setting .logout').click(function(){
+    $('#setting .logout').tap(function(){
         $.mobile.loading('show');
 
         $.post('/logout', function(){
