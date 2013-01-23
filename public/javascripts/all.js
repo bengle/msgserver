@@ -32,7 +32,7 @@ function reachBottom() {
         clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight: document.documentElement.clientHeight;
     }
     scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    if (scrollTop + clientHeight + 10 >= scrollHeight) {
+    if (scrollTop + clientHeight + 20 >= scrollHeight) {
         return true;
     } else {
         return false;
@@ -251,6 +251,7 @@ $('#setting').live('pagecreate', function(){
 
         $.post('/logout', function(){
             $.mobile.loading('hide');
+            $('#userName').val('');
             $.mobile.changePage('#login', {
                 allowSamePageTransition: true,
                 transition:"flip"
