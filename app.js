@@ -62,6 +62,12 @@ app.post('/auth', function(req, res){
   });
 });
 
+app.post('/logout', function(req, res){
+    req.session.isLogin = false;
+    res.setHeader('Content-type', 'text/json');
+    res.send({result:true});
+});
+
 
 app.get('/send',function(req, res){
 	res.render('send',{});

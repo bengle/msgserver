@@ -63,6 +63,7 @@ $('#login').live('pagecreate',function(){
         var password = $('#J_PassWordTxt').val();
         $.post('/auth',{TPL_username:username,TPL_password:password},function(rst){
             if(rst.isLogin){
+                $('#userName').val(username);
                 $.mobile.changePage('#msg', {
                     allowSamePageTransition: true,
                     transition:"flip"
@@ -72,6 +73,20 @@ $('#login').live('pagecreate',function(){
             }
         });
     });
+});
+//如果登录成功，就跳转
+$('#login').live('pageshow', function(){
+    if($('#userName').val()) {
+        $.mobile.changePage('#msg', {
+            allowSamePageTransition: true,
+            transition:"slide"
+        });
+    }
+});
+
+$('#msg').live('pageshow', function(){
+    var username = $('#userName').val();
+    //loading user data
 });
 
 var isLoading = false,
@@ -230,3 +245,16 @@ $('#taobaodetail').live('pageshow', function(){
     }
 });
 
+$('#setting').live('pagecreate', function(){
+    $('#setting .logout').click(function(){
+        $.mobile.loading('show');
+
+        $.post('/logout', function(){
+            $.mobile.loading('hide');
+            $.mobile.changePage('#login', {
+                allowSamePageTransition: true,
+                transition:"flip"
+            });
+        });
+    });
+});
