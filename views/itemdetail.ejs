@@ -26,12 +26,12 @@
     <strong>{{item.title}}</strong>
 </div>
 <div class="ui-grid-a">
-    <div class="ui-block-a">
+    <div class="ui-block-a" style="padding: 5px;">
         <div style="width: 120px;height: 120px">
-            <img src="{{item.pic_url}}" alt="image" width="120">
+            <img src="{{item.pic_url}}" alt="image" style="border-radius: 3px;width: 120px;height:120px;">
         </div>
     </div>
-    <div class="ui-block-b">
+    <div class="ui-block-b" style="margin-top: 10px;">
         <p><span>促销</span><span style="font-family: arial;">￥{{item.price}}</span></p>
         <p><span>运费: </span><span>快递: {{item.express_fee}} EMS: {{item.ems_fee}} 至 杭州市</span></p>
         <p><span>剩下：</span><span>{{item.num}} 件</span></p>

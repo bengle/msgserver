@@ -48,8 +48,15 @@ var loadingData = function(pageNo, callback){
 
 };
 
+$('#first').live('pagecreate', function(){
+    if(document.body.clientHeight > 480) {
+        $('#first img').attr('src', '/images/first@2x.png');
+    }
+});
 $('#first').live('pageshow', function(){
+    $.mobile.loading('show');
     setTimeout(function(){
+        $.mobile.loading('hide');
         $.mobile.changePage('#login', {
             allowSamePageTransition: true,
             transition:"flip"
@@ -59,9 +66,11 @@ $('#first').live('pageshow', function(){
 
 $('#login').live('pagecreate',function(){
     $('#login .submit-btn').delegate('#J_LoginBtn','tap',function(){
+        $.mobile.loading('show');
         var username = $('#J_UserNameTxt').val();
         var password = $('#J_PassWordTxt').val();
         $.post('/auth',{TPL_username:username,TPL_password:password},function(rst){
+            $.mobile.loading('hide');
             if(rst.isLogin){
                 $('#userName').val(username);
                 $.mobile.changePage('#msg', {
@@ -140,7 +149,7 @@ $('#shop').live("pagecreate", function(){
     loadingData({
         page_no:1
     }, function(data){
-        
+
     });
 });
 
