@@ -31,18 +31,11 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-dataMod.initdb('localhost',27017,'','','user');
-//dataMod.initdb('10.249.196.128',27017,'','','user');
+//dataMod.initdb('localhost',27017,'','','user');
+dataMod.initdb('10.249.196.128',27017,'','','user');
 //dataMod.findItems('xj032085');
 
 app.get('/', routes.index);
-
-app.get('/login', function(req, res){
-  if(req.session.isLogin){
-    res.render('/#msg',{});
-  }
-  res.render('login', {});
-});
 
 app.post('/auth', function(req, res){
   var user = req.body.TPL_username;
